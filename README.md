@@ -1,5 +1,11 @@
 # embassy-template
 
+## Cloning
+
+```shell
+git clone --recurse-submodules https://github.com/McMaster-Rocketry-Team/embassy-template.git
+```
+
 ## How to Change Application Name
 
 - Line 5 & 32 in `Cargo.toml`
