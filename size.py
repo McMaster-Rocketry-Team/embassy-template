@@ -6,7 +6,7 @@ import math
 import os
 
 FLASH_SIZE_KIB = 512
-RAM_SIZE_KIB = 256
+RAM_SIZE_KIB = 80
 
 build_env = os.environ.copy()
 build_env['DEFMT_LOG'] = 'off'

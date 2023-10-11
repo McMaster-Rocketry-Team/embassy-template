@@ -1,5 +1,5 @@
 [default.general]
-chip = "STM32F412RETx"
+chip = "STM32F303RETx"
 
 [default.rtt]
 enabled = true

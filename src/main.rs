@@ -4,34 +4,19 @@
 
 use defmt::*;
 use embassy_executor::Spawner;
-use embassy_stm32::{
-    gpio::{AnyPin, Level, Output, Speed},
-    time::mhz,
-    Config,
-};
-use embassy_time::{Duration, Timer};
+use embassy_stm32::time::mhz;
+use embassy_stm32::Config;
 use {defmt_rtt as _, panic_probe as _};
 
-#[embassy_executor::task]
-async fn blink(pin: AnyPin) {
-    let mut led = Output::new(pin, Level::Low, Speed::Medium);
-
-    loop {
-        led.set_high();
-        Timer::after(Duration::from_millis(150)).await;
-        led.set_low();
-        Timer::after(Duration::from_millis(150)).await;
-    }
-}
-
+// For STM32F303 NUCLEO: 
+// PA5 is the LED, when high it's on
+// PC13 is the button, when pressed it's low, external pullup
 #[embassy_executor::main]
 async fn main(spawner: Spawner) {
-    let mut config = Config::default();
-    config.rcc.pll48 = true;
-    config.rcc.sys_ck = Some(mhz(96));
-    config.rcc.hclk = Some(mhz(96));
-    let p = embassy_stm32::init(Default::default());
+    let mut config: Config = Default::default();
+    config.rcc.sysclk = Some(mhz(72));
+    let p = embassy_stm32::init(config);
     info!("Hello World!");
 
-    spawner.spawn(blink(p.PA0.into())).unwrap();
+    
 }

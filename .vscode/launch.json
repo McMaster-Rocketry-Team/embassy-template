@@ -15,7 +15,7 @@
             "cwd": "${workspaceRoot}",
             "runToEntryPoint": "main",
             "executable": "./target/thumbv7em-none-eabihf/debug/embassy-template",
-            "device": "STM32F412RE",
+            "device": "STM32F303RE",
             "preLaunchTask": "Flash"
         },
     ]
