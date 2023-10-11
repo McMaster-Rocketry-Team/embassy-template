@@ -1,6 +1,4 @@
-# embassy-template
-
-This 
+# embassy-template (F303RE)
 
 ## Cloning
 
