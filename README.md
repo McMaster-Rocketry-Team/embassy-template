@@ -1,5 +1,7 @@
 # embassy-template
 
+Note: If you are writing code for STM32F303RE, clone the already-made [f303 branch](https://github.com/McMaster-Rocketry-Team/embassy-template/tree/main-f303).
+
 ## Cloning
 
 ```shell
